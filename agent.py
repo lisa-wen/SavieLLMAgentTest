@@ -589,7 +589,8 @@ def main():
 
     if not st.session_state.graph_initialized:
         load_dotenv()
-        openai.api_key = os.getenv("OPENAI_API_KEY")
+        #openai.api_key = os.getenv("OPENAI_API_KEY")
+        openai.api_key = st.secrets["OPENAI_API_KEY"]
         st.session_state.faq_tool = FaqTool(
             persist_directory="./chroma_langchain_db",
             collection_name="example_collection",
